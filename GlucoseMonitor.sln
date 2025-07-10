@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36301.6 d17.14
+VisualStudioVersion = 17.14.36301.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlucoseMonitorAPI", "GlucoseMonitorAPI\GlucoseMonitorAPI.csproj", "{3F18F10C-CFA3-4C10-8F30-C1D21BDD4713}"
 EndProject
@@ -10,6 +10,18 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlucoseMonitor.Application", "GlucoseMonitor.Application\GlucoseMonitor.Application.csproj", "{F8349F1D-F180-49C7-B9F8-39668809F664}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlucoseMonitor.Infrastructure", "GlucoseMonitor.Infrastructure\GlucoseMonitor.Infrastructure.csproj", "{00C800BE-FFA3-465B-B940-AF8A19AE09BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infra", "infra", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		main.bicep = main.bicep
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		start-dev.ps1 = start-dev.ps1
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlucoseMonitor.Workers", "GlucoseMonitor.Workers\GlucoseMonitor.Workers.csproj", "{81BBD5A3-D9B1-4E2B-91D6-43FE955137DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +45,10 @@ Global
 		{00C800BE-FFA3-465B-B940-AF8A19AE09BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00C800BE-FFA3-465B-B940-AF8A19AE09BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00C800BE-FFA3-465B-B940-AF8A19AE09BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81BBD5A3-D9B1-4E2B-91D6-43FE955137DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81BBD5A3-D9B1-4E2B-91D6-43FE955137DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81BBD5A3-D9B1-4E2B-91D6-43FE955137DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81BBD5A3-D9B1-4E2B-91D6-43FE955137DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

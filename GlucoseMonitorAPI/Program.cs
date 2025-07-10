@@ -21,6 +21,15 @@ builder.Services.AddSingleton<IMessageQueueService, AzuriteQueueService>();
 builder.Services.AddScoped<IMeasurementService, MeasurementService>();
 builder.Services.AddSingleton<IMeasurementQueue, QueueService>();
 builder.Services.AddScoped<IMeasurementRepository, MeasurementRepository>();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowDashboard",
+        policy => policy.WithOrigins("http://192.168.2.13:3000/", "https://localhost:3000")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
+});
+
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 var app = builder.Build();
@@ -31,7 +40,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors("AllowDashboard");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

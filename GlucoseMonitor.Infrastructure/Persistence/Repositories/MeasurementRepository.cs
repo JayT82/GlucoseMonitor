@@ -15,7 +15,15 @@ public class MeasurementRepository : IMeasurementRepository
 
     public async Task SaveAsync(Measurement measurement)
     {
-        await _context.Measurements.AddAsync(measurement);
+        var bestaatAl = await _context.Measurements.AnyAsync(m => m.Id == measurement.Id);
+        if (bestaatAl)
+        {
+            // Optioneel: log dat het item al bestaat
+            Console.WriteLine($"⚠️ Measurement {measurement.Id} bestaat al, wordt genegeerd.");
+            return;
+        }
+
+        _context.Measurements.Add(measurement);
         await _context.SaveChangesAsync();
     }
 

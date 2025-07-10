@@ -1,0 +1,30 @@
+name: Mock Azure Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📦 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 🛠️ Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: 🔧 Build and publish WebAPI
+        run: |
+          dotnet restore
+          dotnet build --no-restore
+          dotnet publish src/GlucoseMonitor.API -c Release -o ./publish
+
+      - name: 💡 Simulate Azure Bicep deploy
+        run: echo "🔄 Bicep template would deploy AppService + StorageQueue"
+
+      - name: 🚀 Simulate WebApp deploy
+        run: echo "✅ WebApp would now be deployed with environment variables"

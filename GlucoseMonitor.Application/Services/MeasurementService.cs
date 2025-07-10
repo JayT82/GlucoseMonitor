@@ -21,7 +21,10 @@ namespace GlucoseMonitor.Application.Services
 
             await _repository.SaveAsync(measurement);
         }
-
+        public async Task<IEnumerable<Measurement>> GetAllAsync()
+        {
+            return await _repository.GetAllAsync();
+        }
         public async Task<IEnumerable<AnomalyDto>> GetAnomaliesAsync(double lower, double upper)
         {
             var all = await _repository.GetAllAsync();

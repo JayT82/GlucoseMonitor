@@ -1,4 +1,5 @@
 ﻿using GlucoseMonitor.Application.DTOs;
+using GlucoseMonitor.Domain.Entities;
 
 namespace GlucoseMonitor.Application.Services
 {
@@ -6,5 +7,6 @@ namespace GlucoseMonitor.Application.Services
     {
         Task RegisterMeasurementAsync(MeasurementDto dto);
         Task<IEnumerable<AnomalyDto>> GetAnomaliesAsync(double lower, double upper);
+        Task<IEnumerable<Measurement>> GetAllAsync();
     }
 }
